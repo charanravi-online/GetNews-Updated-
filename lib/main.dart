@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:getnews/pages/homepage.dart';
 
-void main() {
+// import 'package:getnews/views/sign_up_widget.dart';
+
+import 'pages/homepage.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, 
-    statusBarBrightness: Brightness.light,
+  // await Firebase.initializeApp();
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //   statusBarColor: Colors.transparent, 
+  //   statusBarBrightness: Brightness.light,
     
-    // transparent status bar
-    ));
+  //   // transparent status bar
+    
+  //   ));
+    
   runApp(MyApp());
 }
 

@@ -427,11 +427,13 @@ class _HomePageState extends State<HomePage> {
                             } //error handling for top news section
                           }),
                   Container(
+                    
                     padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
+                          
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -439,7 +441,9 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => Category(
                                             query: "Latest",
                                           )));
+                                          
                             },
+                            
                             child: Text('show more')),
                       ],
                     ),
