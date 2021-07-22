@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   List<NewsQuery> newsModelList = <NewsQuery>[];
   List<NewsQuery> newsModelListCarousel = <NewsQuery>[];
   List<String> navBarItem = [
-    'Trending News',
+    // 'Trending News',
     'India',
     'World',
     'Covid-19',
@@ -238,11 +238,11 @@ class _HomePageState extends State<HomePage> {
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
                                         child: Image.network(
-                                            instance.newsImg,
-                                            fit: BoxFit.fitHeight,
-                                            width: double.infinity,
-                                            height: 230,
-                                          ),
+                                          instance.newsImg,
+                                          fit: BoxFit.fitHeight,
+                                          width: double.infinity,
+                                          height: 230,
+                                        ),
 
                                         //   instance.newsImg == null
                                         //       ? AssetImage(
@@ -427,13 +427,18 @@ class _HomePageState extends State<HomePage> {
                             } //error handling for top news section
                           }),
                   Container(
-                    
                     padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xff9e579d),
+                              // elevation: 500,
+                              visualDensity:
+                                  VisualDensity.adaptivePlatformDensity,
+                              enableFeedback: true,
+                            ),
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -441,10 +446,8 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => Category(
                                             query: "Latest",
                                           )));
-                                          
                             },
-                            
-                            child: Text('show more')),
+                            child: Text('Show More')),
                       ],
                     ),
                   ),
