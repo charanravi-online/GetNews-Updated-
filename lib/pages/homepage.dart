@@ -7,7 +7,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:getnews/models/model.dart';
 import 'package:getnews/pages/category.dart';
 import 'package:getnews/pages/newsview.dart';
+import 'package:getnews/screens/login.dart';
 import 'package:http/http.dart';
+import 'package:getnews/services/auth.dart';
 
 class HomePage extends StatefulWidget {
   // const HomePage({Key? key}) : super(key: key);
@@ -17,6 +19,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  SignOutMethod(context) async {
+    await signOut();
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
   TextEditingController searchController = new TextEditingController();
   List<NewsQuery> newsModelList = <NewsQuery>[];
   List<NewsQuery> newsModelListCarousel = <NewsQuery>[];
@@ -104,6 +112,22 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xff574b90),
         title: Text('GetNews'),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const Text('This is the Drawer'),
+              ElevatedButton(
+                onPressed: () {
+                  SignOutMethod(context)();
+                },
+                child: Text("SIGN OUT"),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

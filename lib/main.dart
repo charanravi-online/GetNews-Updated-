@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getnews/pages/homepage.dart';
+import 'package:getnews/screens/login.dart';
 
 // import 'package:getnews/views/sign_up_widget.dart';
 
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Color(0xff303a52),
         primaryColor: Color(0xff303a52),
       ),
-      home: HomePage(),
+      home: FirebaseAuth.instance.currentUser == null ? HomePage() : Login(),
     );
   }
 }
