@@ -38,20 +38,53 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login To App"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SignInButton(
-              Buttons.Google,
-              onPressed: () {
-                signInMethod(context);
-              },
-            ),
-          ],
+      backgroundColor: Color(0xff574b90),
+      // appBar: AppBar(
+      // title: Text("Login To App"),
+      // backgroundColor: Color(0xff574b90),
+      // ),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "GetNews",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 40),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Your daily news app",
+                style: TextStyle(color: Colors.white30, fontSize: 20),
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              Text(
+                "Sign in with Google to continue",
+                style: TextStyle(color: Colors.white70, fontSize: 20),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              SignInButton(
+                Buttons.GoogleDark,
+                // Buttons.Google,
+
+                onPressed: () {
+                  signInMethod(context);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
