@@ -114,19 +114,20 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       drawer: Drawer(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              const Text('This is the Drawer'),
-              ElevatedButton(
-                onPressed: () {
-                  SignOutMethod(context)();
-                },
-                child: Text("SIGN OUT"),
-              ),
-            ],
-          ),
+        child: ListView(
+          padding: EdgeInsets.all(7),
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            const Text('sign out here'),
+            ElevatedButton(
+              onPressed: () {
+                SignOutMethod(context)();
+              },
+              child: Text("SIGN OUT"),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
