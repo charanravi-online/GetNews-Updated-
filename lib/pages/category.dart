@@ -5,7 +5,6 @@ import 'package:getnews/models/model.dart';
 import 'package:getnews/pages/newsview.dart';
 import 'package:http/http.dart';
 
-
 class Category extends StatefulWidget {
   // const Category({ Key? key }) : super(key: key);
 
@@ -15,8 +14,6 @@ class Category extends StatefulWidget {
   @override
   _CategoryState createState() => _CategoryState();
 }
-
-
 
 class _CategoryState extends State<Category> {
   List<NewsQuery> newsModelList = <NewsQuery>[];
@@ -92,7 +89,6 @@ class _CategoryState extends State<Category> {
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 15),
                       child: Text(
-                        
                         widget.query,
                         style: TextStyle(
                           color: Color(0xff303a52),
@@ -106,7 +102,6 @@ class _CategoryState extends State<Category> {
               ),
               isLoading
                   ? Container(
-                     
                       height: MediaQuery.of(context).size.height - 450,
                       child: Center(
                         child: CircularProgressIndicator(),
@@ -118,7 +113,6 @@ class _CategoryState extends State<Category> {
                       itemCount: newsModelList.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          
                           margin:
                               EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           child: InkWell(
@@ -140,13 +134,12 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(15),
-                                    child:
-                                        Image.network(
-                                          newsModelList[index].newsImg,
-                                          fit: BoxFit.fitHeight,
-                                          width: double.infinity,
-                                          height: 230,
-                                        ),
+                                    child: Image.network(
+                                      newsModelList[index].newsImg,
+                                      fit: BoxFit.fitHeight,
+                                      width: double.infinity,
+                                      height: 230,
+                                    ),
                                     //     Image.network(
                                     //   //error handling in process
                                     //   newsModelList[index].newsImg == null
@@ -193,7 +186,7 @@ class _CategoryState extends State<Category> {
                                                           .newsDes
                                                           .length >
                                                       50
-                                                  ? "${newsModelList[index].newsDes.substring(0, 55)}..."
+                                                  ? "${newsModelList[index].newsDes.substring(0, 54)}..."
                                                   : newsModelList[index]
                                                       .newsDes,
                                               style: TextStyle(
