@@ -45,9 +45,12 @@ class _LoginState extends State<Login> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SignInButton(Buttons.Google, onPressed: () {
-              signInMethod(context)();
-            })
+            SignInButton(
+              Buttons.Google,
+              onPressed: () {
+                signInMethod(context);
+              },
+            ),
           ],
         ),
       ),

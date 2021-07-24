@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Color(0xff303a52),
         primaryColor: Color(0xff303a52),
       ),
-      home: FirebaseAuth.instance.currentUser == null ? HomePage() : Login(),
+      home: FirebaseAuth.instance.currentUser == null ? Login() : HomePage(),
     );
   }
 }
