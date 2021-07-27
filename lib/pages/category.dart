@@ -37,6 +37,9 @@ class _CategoryState extends State<Category> {
     } else if (query == "the-times-of-india" ||
         query == "bbc-news" ||
         query == "national-geographic" ||
+        query == 'google-news' ||
+        query == 'bloomberg' ||
+        query == 'cnn' ||
         query == "news24" ||
         query == "techradar" ||
         query == "mashable" ||
@@ -47,7 +50,7 @@ class _CategoryState extends State<Category> {
       // "https://newsapi.org/v2/everything?q=$query&language=en&sortBy=popularity&apiKey=2944d5dc48ef4b14ac81054d6c748062";
     } else {
       url =
-          "https://newsapi.org/v2/top-headlines?q=$query&language=en&sortBy=popularity&apiKey=2944d5dc48ef4b14ac81054d6c748062";
+          "https://newsapi.org/v2/everything?q=$query&apiKey=2944d5dc48ef4b14ac81054d6c748062";
     }
 
     Response response = await get(Uri.parse(url));

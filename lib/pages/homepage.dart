@@ -45,7 +45,10 @@ class _HomePageState extends State<HomePage> {
   List<String> drawerItem = [
     "the-times-of-india",
     "bbc-news",
-    // "national-geographic",
+    "google-news",
+    "bloomberg",
+    "cnn",
+    "fox-news",
     "news24",
     "techradar",
     "mashable",
@@ -131,12 +134,24 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xff574b90),
               ),
-              child: Text('Drawer Header'),
+              child: Container(
+                // padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
+                child: Text(
+                  " \n\n\n Personalise your news by selecting from the distributions below.",
+                  style: TextStyle(
+                    // fontSize: 34,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
+            // SizedBox(
+            //   height: 30,
+            // ),
             ListTile(
               title: const Text('The Times of India'),
               onTap: () {
@@ -159,19 +174,8 @@ class _HomePageState extends State<HomePage> {
                             )));
               },
             ),
-            // ListTile(
-            //   title: const Text('National Geographic'),
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //             builder: (context) => Category(
-            //                   query: drawerItem[2],
-            //                 )));
-            //   },
-            // ),
             ListTile(
-              title: const Text('News 24'),
+              title: const Text('Google News'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -182,7 +186,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Tech Radar'),
+              title: const Text('Bloomberg'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -193,7 +197,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Mashable'),
+              title: const Text('CNN'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -204,7 +208,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('BuzzFeed'),
+              title: const Text('Fox News'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -215,7 +219,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('ESPN'),
+              title: const Text('News 24'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -223,6 +227,57 @@ class _HomePageState extends State<HomePage> {
                         builder: (context) => Category(
                               query: drawerItem[6],
                             )));
+              },
+            ),
+            ListTile(
+              title: const Text('Tech Radar'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[7],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('Mashable'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[8],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('BuzzFeed'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[9],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('ESPN'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[10],
+                            )));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout_outlined),
+              title: const Text('LOG OUT'),
+              onTap: () {
+                SignOutMethod(context)();
               },
             ),
           ],
