@@ -28,18 +28,29 @@ class _HomePageState extends State<HomePage> {
   TextEditingController searchController = new TextEditingController();
   List<NewsQuery> newsModelList = <NewsQuery>[];
   List<NewsQuery> newsModelListCarousel = <NewsQuery>[];
+
   List<String> navBarItem = [
     // 'Trending News',
     'India',
     'World',
     'Covid-19',
-    'Technology',
-    'Entertainment',
-    'Current Affairs',
-    'Sports',
-    'Lifestyle',
-    'Bussiness',
-    'Health',
+    'technology',
+    'entertainment',
+    'sports',
+    'science',
+    'business',
+    'health',
+  ];
+
+  List<String> drawerItem = [
+    "the-times-of-india",
+    "bbc-news",
+    // "national-geographic",
+    "news24",
+    "techradar",
+    "mashable",
+    "buzzfeed",
+    "espn",
   ];
 
   bool isLoading = true;
@@ -113,23 +124,127 @@ class _HomePageState extends State<HomePage> {
         title: Text('GetNews'),
         centerTitle: true,
       ),
-      drawer: Drawer(
+      drawer:
+          //  NavigationDrawerWidget(),
+
+          Drawer(
         child: ListView(
-          padding: EdgeInsets.all(7),
+          padding: EdgeInsets.zero,
           children: [
-            SizedBox(
-              height: 100,
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
             ),
-            const Text('sign out here'),
-            ElevatedButton(
-              onPressed: () {
-                SignOutMethod(context)();
+            ListTile(
+              title: const Text('The Times of India'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[0],
+                            )));
               },
-              child: Text("SIGN OUT"),
+            ),
+            ListTile(
+              title: const Text('BBC News'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[1],
+                            )));
+              },
+            ),
+            // ListTile(
+            //   title: const Text('National Geographic'),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => Category(
+            //                   query: drawerItem[2],
+            //                 )));
+            //   },
+            // ),
+            ListTile(
+              title: const Text('News 24'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[2],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('Tech Radar'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[3],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('Mashable'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[4],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('BuzzFeed'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[5],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('ESPN'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[6],
+                            )));
+              },
             ),
           ],
         ),
       ),
+      //     Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.all(7),
+      //     children: [
+      //       SizedBox(
+      //         height: 100,
+      //       ),
+      //       const Text('sign out here'),
+      //       ElevatedButton(
+      //         onPressed: () {
+      //           SignOutMethod(context)();
+      //         },
+      //         child: Text("SIGN OUT"),
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: SingleChildScrollView(
         child: Column(
           children: [
