@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   List<String> navBarItem = [
     // 'Trending News',
     'India',
-    'World',
+    // 'World',
     'Covid-19',
     'technology',
     'entertainment',
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     "the-times-of-india",
     "bbc-news",
     "google-news",
-    "bloomberg",
+    // "bloomberg",
     "cnn",
     "fox-news",
     "news24",
@@ -54,9 +54,14 @@ class _HomePageState extends State<HomePage> {
     "mashable",
     "buzzfeed",
     "espn",
+    "bbc-sport",
+    "bleacher-report",
+    // "crypto-coins-news",
+    "hacker-news",
   ];
 
   bool isLoading = true;
+
   getNewsByQuery(String query) async {
     Map element;
     int i = 0;
@@ -185,8 +190,19 @@ class _HomePageState extends State<HomePage> {
                             )));
               },
             ),
+            // ListTile(
+            //   title: const Text('Bloomberg'),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => Category(
+            //                   query: drawerItem[3],
+            //                 )));
+            //   },
+            // ),
             ListTile(
-              title: const Text('Bloomberg'),
+              title: const Text('CNN'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -197,7 +213,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('CNN'),
+              title: const Text('Fox News'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -208,7 +224,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Fox News'),
+              title: const Text('News 24'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -219,7 +235,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('News 24'),
+              title: const Text('Tech Radar'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -230,7 +246,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Tech Radar'),
+              title: const Text('Mashable'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -241,7 +257,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Mashable'),
+              title: const Text('BuzzFeed'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -252,7 +268,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('BuzzFeed'),
+              title: const Text('ESPN'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -263,13 +279,46 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('ESPN'),
+              title: const Text('BBC Sport'),
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => Category(
                               query: drawerItem[10],
+                            )));
+              },
+            ),
+            ListTile(
+              title: const Text('Bleacher Report'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[11],
+                            )));
+              },
+            ),
+            // ListTile(
+            //   title: const Text('Crypto Coin News'),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => Category(
+            //                   query: drawerItem[12],
+            //                 )));
+            //   },
+            // ),
+            ListTile(
+              title: const Text('Hacker News'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Category(
+                              query: drawerItem[12],
                             )));
               },
             ),
@@ -301,6 +350,7 @@ class _HomePageState extends State<HomePage> {
       //   ),
       // ),
       body: SingleChildScrollView(
+        // child: RefreshIndicator( onRefresh: getNewsOfIndia,
         child: Column(
           children: [
             Container(
@@ -651,6 +701,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        // ),
       ),
     );
   }

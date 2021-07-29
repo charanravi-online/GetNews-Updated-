@@ -3,9 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getnews/pages/homepage.dart';
 import 'package:getnews/screens/login.dart';
-
 // import 'package:getnews/views/sign_up_widget.dart';
-
 import 'pages/homepage.dart';
 
 Future<void> main() async {

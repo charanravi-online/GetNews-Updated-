@@ -44,14 +44,24 @@ class _CategoryState extends State<Category> {
         query == "techradar" ||
         query == "mashable" ||
         query == "buzzfeed" ||
+        query == "bbc-sport" ||
+        query == "bleacher-report" ||
+        query == "crypto-coins-news" ||
+        query == "hacker-news" ||
         query == "espn") {
       url =
           "https://newsapi.org/v2/top-headlines?sources=$query&apiKey=2944d5dc48ef4b14ac81054d6c748062";
       // "https://newsapi.org/v2/everything?q=$query&language=en&sortBy=popularity&apiKey=2944d5dc48ef4b14ac81054d6c748062";
-    } else {
+    } else
+    // if  (query == "Latest")
+    {
       url =
-          "https://newsapi.org/v2/everything?q=$query&apiKey=2944d5dc48ef4b14ac81054d6c748062";
+          "https://newsapi.org/v2/everything?q=$query&language=en&sortBy=publishedAt&apiKey=2944d5dc48ef4b14ac81054d6c748062";
     }
+    // else {
+    //   url =
+    //       "https://newsapi.org/v2/everything?q=$query&apiKey=2944d5dc48ef4b14ac81054d6c748062";
+    // }
 
     Response response = await get(Uri.parse(url));
     Map data = jsonDecode(response.body);
