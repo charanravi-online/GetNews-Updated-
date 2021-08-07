@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:getnews/data/localdb.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -30,6 +31,9 @@ Future<User?> signInWithGoogle() async {
     final User? currentUser = await _auth.currentUser;
     assert(currentUser!.uid == user!.uid);
     print(user);
+    LocalDataSaver.saveName(user!.displayName.toString());
+    LocalDataSaver.saveMail(user.email.toString());
+    LocalDataSaver.saveImg(user.photoURL.toString());
     return user;
   } catch (e) {
     print(e);

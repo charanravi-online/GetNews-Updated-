@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:getnews/data/constant.dart';
 import 'package:getnews/models/model.dart';
 import 'package:getnews/pages/category.dart';
 import 'package:getnews/pages/newsview.dart';
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
     "bbc-sport",
     "bleacher-report",
     // "crypto-coins-news",
-    "hacker-news",
+    // "hacker-news",
   ];
 
   bool isLoading = true;
@@ -132,10 +133,7 @@ class _HomePageState extends State<HomePage> {
         title: Text('GetNews'),
         centerTitle: true,
       ),
-      drawer:
-          //  NavigationDrawerWidget(),
-
-          Drawer(
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -143,21 +141,49 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: Color(0xff574b90),
               ),
-              child: Container(
-                // padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
-                child: Text(
-                  " \n\n\n Personalise your news by selecting from the distributions below.",
-                  style: TextStyle(
-                    // fontSize: 34,
-                    color: Colors.white,
+
+              child: Column(children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  child: new CircleAvatar(
+                    radius: 30.0,
+                    backgroundColor: const Color(0xFF778899),
+                    backgroundImage:
+                        NetworkImage(constant.img), // for Network image
                   ),
                 ),
-              ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  constant.name,
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  constant.email,
+                  style: TextStyle(color: Colors.white),
+                ),
+              ]),
+
+              //   child: Container(
+
+              //     // padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
+              //     child: Text(
+              //       " \n\n\n Personalise your news by selecting from the distributions below.",
+              //       style: TextStyle(
+              //         // fontSize: 34,
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ),
             ),
-            // SizedBox(
-            //   height: 30,
-            // ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('The Times of India'),
               onTap: () {
                 Navigator.push(
@@ -169,6 +195,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('BBC News'),
               onTap: () {
                 Navigator.push(
@@ -180,6 +207,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('Google News'),
               onTap: () {
                 Navigator.push(
@@ -190,18 +218,8 @@ class _HomePageState extends State<HomePage> {
                             )));
               },
             ),
-            // ListTile(
-            //   title: const Text('Bloomberg'),
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //             builder: (context) => Category(
-            //                   query: drawerItem[3],
-            //                 )));
-            //   },
-            // ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('CNN'),
               onTap: () {
                 Navigator.push(
@@ -213,6 +231,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('Fox News'),
               onTap: () {
                 Navigator.push(
@@ -224,6 +243,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('News 24'),
               onTap: () {
                 Navigator.push(
@@ -235,6 +255,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('Tech Radar'),
               onTap: () {
                 Navigator.push(
@@ -246,6 +267,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('Mashable'),
               onTap: () {
                 Navigator.push(
@@ -257,6 +279,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('BuzzFeed'),
               onTap: () {
                 Navigator.push(
@@ -268,6 +291,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('ESPN'),
               onTap: () {
                 Navigator.push(
@@ -279,6 +303,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('BBC Sport'),
               onTap: () {
                 Navigator.push(
@@ -290,6 +315,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.my_library_books_outlined),
               title: const Text('Bleacher Report'),
               onTap: () {
                 Navigator.push(
@@ -297,28 +323,6 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                         builder: (context) => Category(
                               query: drawerItem[11],
-                            )));
-              },
-            ),
-            // ListTile(
-            //   title: const Text('Crypto Coin News'),
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //             builder: (context) => Category(
-            //                   query: drawerItem[12],
-            //                 )));
-            //   },
-            // ),
-            ListTile(
-              title: const Text('Hacker News'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Category(
-                              query: drawerItem[12],
                             )));
               },
             ),
