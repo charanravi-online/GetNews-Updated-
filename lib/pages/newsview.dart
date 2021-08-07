@@ -29,6 +29,7 @@ class _NewsViewState extends State<NewsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff574b90),
         title: Text("GetNews"),
         centerTitle: true,
         actions: [
