@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:getnews/data/localdb.dart';
 import 'package:getnews/pages/homepage.dart';
 import 'package:getnews/screens/login.dart';
 // import 'package:getnews/views/sign_up_widget.dart';
@@ -9,23 +10,37 @@ import 'pages/homepage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  //   statusBarColor: Colors.transparent,
-  //   statusBarBrightness: Brightness.light,
-
-  //   // transparent status bar
-
-  //   ));
-
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isLogIn = false;
+
+  getLoggedInState() async {
+    await LocalDataSaver.getLogData().then((value) {
+      setState(() {
+        isLogIn = value!;
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getLoggedInState();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'GetNews',
+      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -36,10 +51,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        // primarySwatch: Color(0xff303a52),
-        primaryColor: Color(0xff303a52),
+        primarySwatch: Colors.blue,
       ),
-      home: FirebaseAuth.instance.currentUser == null ? Login() : HomePage(),
+      home: isLogIn ? HomePage() : Login(),
+      // FirebaseAuth.instance.currentUser == null ? Login() : HomePage(),
     );
   }
 }

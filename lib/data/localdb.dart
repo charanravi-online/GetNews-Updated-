@@ -4,7 +4,7 @@ class LocalDataSaver {
   static String nameKey = "NAMEKEY";
   static String emailKey = "EMAILKEY";
   static String imgKey = "IMGKEY";
-  static String logKey = "LOGWALIKEY";
+  static String logKey = "LOGKEY";
 
   static Future<bool> saveName(String username) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();

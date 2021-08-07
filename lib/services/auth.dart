@@ -31,6 +31,8 @@ Future<User?> signInWithGoogle() async {
     final User? currentUser = await _auth.currentUser;
     assert(currentUser!.uid == user!.uid);
     print(user);
+    LocalDataSaver.saveLoginData(true);
+
     LocalDataSaver.saveName(user!.displayName.toString());
     LocalDataSaver.saveMail(user.email.toString());
     LocalDataSaver.saveImg(user.photoURL.toString());
@@ -43,5 +45,6 @@ Future<User?> signInWithGoogle() async {
 Future<String> signOut() async {
   await googleSignIn.signOut();
   await _auth.signOut();
+  LocalDataSaver.saveLoginData(false);
   return "success";
 }

@@ -19,6 +19,9 @@ class _LoginState extends State<Login> {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final user = await auth.currentUser;
     if (user != null) {
+      constant.name = (await LocalDataSaver.getName())!;
+      constant.email = (await LocalDataSaver.getEmail())!;
+      constant.img = (await LocalDataSaver.getImg())!;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => HomePage()));
     }
