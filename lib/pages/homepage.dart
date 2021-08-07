@@ -471,6 +471,7 @@ class _HomePageState extends State<HomePage> {
                           try {
                             return Container(
                               child: InkWell(
+                                onLongPress: () => share(instance.newsUrl),
                                 onTap: () {
                                   Navigator.push(
                                       context, //webview for carousal news
@@ -593,6 +594,8 @@ class _HomePageState extends State<HomePage> {
                                 margin: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: InkWell(
+                                  onLongPress: () =>
+                                      share(newsModelList[index].newsUrl),
                                   onTap: () {
                                     Navigator.push(
                                         context,

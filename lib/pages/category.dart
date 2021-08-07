@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getnews/models/model.dart';
 import 'package:getnews/pages/newsview.dart';
 import 'package:http/http.dart';
+import 'package:share/share.dart';
 
 class Category extends StatefulWidget {
   // const Category({ Key? key }) : super(key: key);
@@ -149,6 +150,8 @@ class _CategoryState extends State<Category> {
                             margin: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 5),
                             child: InkWell(
+                              onLongPress: () =>
+                                  share(newsModelList[index].newsUrl),
                               onTap: () {
                                 Navigator.push(
                                     //newsview for categories section
@@ -246,4 +249,10 @@ class _CategoryState extends State<Category> {
       ),
     );
   }
+}
+
+void share(String newsUrl) {
+  // final RenderBox box = context.findRenderObject();
+  final String longpress = "{$newsUrl}";
+  Share.share(longpress);
 }
