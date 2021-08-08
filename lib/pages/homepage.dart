@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:getnews/data/constant.dart';
@@ -9,8 +10,10 @@ import 'package:getnews/models/model.dart';
 import 'package:getnews/pages/category.dart';
 import 'package:getnews/pages/newsview.dart';
 import 'package:getnews/screens/login.dart';
+import 'package:getnews/services/local_notification_service.dart';
 import 'package:http/http.dart';
 import 'package:getnews/services/auth.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class HomePage extends StatefulWidget {
   // const HomePage({Key? key}) : super(key: key);
@@ -127,6 +130,36 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     getNewsByQuery('India');
     getNewsOfIndia("");
+
+    LocalNotificationService.initialize(context);
+
+    ///gives you the message on which user taps
+    ///and it opened the app from terminated state
+    FirebaseMessaging.instance.getInitialMessage().then((message) {
+      if (message != null) {
+        final routeFromMessage = message.data["route"];
+
+        Navigator.of(context).pushNamed(routeFromMessage);
+      }
+    });
+
+    ///forground work
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null) {
+        print(message.notification!.body);
+        print(message.notification!.title);
+      }
+
+      LocalNotificationService.display(message);
+    });
+
+    ///When the app is in background but opened and user taps
+    ///on the notification
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      final routeFromMessage = message.data["route"];
+
+      Navigator.of(context).pushNamed(routeFromMessage);
+    });
   }
 
   @override
@@ -145,7 +178,6 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: Color(0xff574b90),
               ),
-
               child: Column(children: [
                 SizedBox(
                   height: 10,
@@ -173,18 +205,6 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(color: Colors.white),
                 ),
               ]),
-
-              //   child: Container(
-
-              //     // padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
-              //     child: Text(
-              //       " \n\n\n Personalise your news by selecting from the distributions below.",
-              //       style: TextStyle(
-              //         // fontSize: 34,
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //   ),
             ),
             ListTile(
               leading: Icon(Icons.my_library_books_outlined),
