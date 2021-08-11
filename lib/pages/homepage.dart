@@ -206,18 +206,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ]),
             ),
-            ListTile(
-              leading: Icon(Icons.my_library_books_outlined),
-              title: const Text('The Times of India'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Category(
-                              query: drawerItem[0],
-                            )));
-              },
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.my_library_books_outlined),
+            //   title: const Text('The Times of India'),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => Category(
+            //                   query: drawerItem[0],
+            //                 )));
+            //   },
+            // ),
             ListTile(
               leading: Icon(Icons.my_library_books_outlined),
               title: const Text('BBC News'),
@@ -381,6 +381,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {
                         if ((searchController.text).replaceAll(" ", "") == "") {
                           print("Blank Search");
+                          searchController.clear();
                         } else {
                           Navigator.push(
                               context,
