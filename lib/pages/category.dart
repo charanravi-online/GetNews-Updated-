@@ -106,7 +106,7 @@ class _CategoryState extends State<Category> {
         title: InkWell(
           child: Text('GetNews'),
           onTap: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );

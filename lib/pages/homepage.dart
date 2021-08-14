@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
         title: InkWell(
           child: Text('GetNews'),
           onTap: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
