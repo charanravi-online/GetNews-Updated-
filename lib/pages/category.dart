@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:getnews/models/model.dart';
+import 'package:getnews/pages/homepage.dart';
 import 'package:getnews/pages/newsview.dart';
 import 'package:http/http.dart';
 import 'package:share/share.dart';
@@ -102,7 +103,15 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetNews'),
+        title: InkWell(
+          child: Text('GetNews'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
         centerTitle: true,
         backgroundColor: Color(0xff574b90),
       ),

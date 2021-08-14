@@ -167,7 +167,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff574b90),
-        title: Text('GetNews'),
+        title: InkWell(
+          child: Text('GetNews'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
         centerTitle: true,
       ),
       drawer: Drawer(
