@@ -42,12 +42,12 @@ class _HomePageState extends State<HomePage> {
     'India',
     // 'World',
     'Covid-19',
-    'technology',
-    'entertainment',
-    'sports',
-    'science',
-    'business',
-    'health',
+    'Technology',
+    'Entertainment',
+    'Sports',
+    'Science',
+    'Business',
+    'Health',
   ];
 
   List<String> drawerItem = [
