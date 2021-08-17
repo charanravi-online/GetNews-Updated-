@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<String> drawerItem = [
-    "the-times-of-india",
+    "Covid19 India",
     "bbc-news",
     "google-news",
     // "bloomberg",
@@ -214,18 +214,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               ]),
             ),
-            // ListTile(
-            //   leading: Icon(Icons.my_library_books_outlined),
-            //   title: const Text('The Times of India'),
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //             builder: (context) => Category(
-            //                   query: drawerItem[0],
-            //                 )));
-            //   },
-            // ),
+            ListTile(
+              leading: Icon(Icons.medical_services),
+              title: const Text(
+                'Covid19 India',
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            NewsView("https://www.covid19india.org/")));
+              },
+            ),
             ListTile(
               leading: Icon(Icons.my_library_books_outlined),
               title: const Text('BBC News'),
