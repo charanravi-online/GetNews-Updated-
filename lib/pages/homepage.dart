@@ -217,7 +217,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.medical_services),
               title: const Text(
-                'Covid19 India // Resources',
+                'Covid19 Bangalore // Helpline',
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
               ),
@@ -225,8 +225,8 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => NewsView(
-                            "https://www.covid19india.org/resources")));
+                        builder: (context) =>
+                            NewsView("https://covidhelplinebangalore.com/")));
               },
             ),
             ListTile(
